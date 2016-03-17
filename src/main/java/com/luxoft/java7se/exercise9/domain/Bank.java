@@ -25,4 +25,12 @@ public class Bank {
     public void addListener(ClientRegistrationListener listener) {
         listeners.add(listener);
     }
+
+    @Override
+    public String toString() {
+        return "Bank{" +
+                "clients=" + clients +
+                ", listeners=" + listeners +
+                '}';
+    }
 }

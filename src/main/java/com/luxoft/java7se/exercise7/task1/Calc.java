@@ -1,9 +1,5 @@
 package com.luxoft.java7se.exercise7.task1;
 
-import org.apache.commons.lang.math.NumberUtils;
-
-import java.util.Arrays;
-
 import static java.util.Arrays.asList;
 
 public class Calc {
@@ -21,14 +17,8 @@ public class Calc {
         if (args.length != 3) {
             throw new IllegalArgumentException("3 arguments should be given");
         }
-        if (!NumberUtils.isNumber(args[0])) {
-            throw new IllegalArgumentException("First argument is not numeric");
-        }
         if (!asList("+", "-", "/", "*").contains(args[1])) {
             throw new IllegalArgumentException("Second argument is not +, -, / or *");
-        }
-        if (!NumberUtils.isNumber(args[2])) {
-            throw new IllegalArgumentException("Third argument is not numeric");
         }
     }
 

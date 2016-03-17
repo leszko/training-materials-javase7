@@ -1,52 +1,47 @@
 package com.luxoft.java7se.exercise9.domain;
 
-import java.math.BigDecimal;
-
 public class CheckingAccount implements Account {
 
-    private BigDecimal balance;
+    private double balance;
+    private double overdraft;
 
-    private BigDecimal initialOverdraft;
-    private BigDecimal overdraft;
-
-    public CheckingAccount(BigDecimal initialBalance, BigDecimal initialOverdraft) {
-        this.balance = initialBalance;
-        this.initialOverdraft = initialOverdraft;
-        this.overdraft = initialOverdraft;
+    public CheckingAccount(double startingBalance, double overdraft) {
+        this.balance = startingBalance;
+        this.overdraft = overdraft;
     }
 
     @Override
-    public BigDecimal getBalance() {
-        return balance;
+    public double getBalance() {
+        return this.balance;
     }
 
     @Override
-    public void deposit(BigDecimal amount) {
-        overdraft = overdraft.add(amount);
-        if (overdraft.compareTo(initialOverdraft) >= 0) {
-            BigDecimal toAmount = overdraft.subtract(initialOverdraft);
-            balance = balance.add(amount);
-            overdraft = new BigDecimal(initialOverdraft.doubleValue());
+    public void deposit(double x) {
+        this.balance += x;
+    }
 
+    @Override
+    public void withdraw(double x) {
+        if (this.balance + this.overdraft >= x) {
+            this.balance -= x;
+        } else {
+            System.out.println("Not enough money");
         }
+
+        assert balance >= -overdraft;
     }
 
     @Override
-    public void withdraw(BigDecimal amount) {
-        if (balance.add(overdraft).compareTo(amount) >= 0) {
-            if (balance.compareTo(amount) >= 0) {
-                balance = balance.subtract(amount);
-            } else {
-                overdraft = amount.subtract(balance);
-                balance = new BigDecimal(0);
-            }
-        }
-        assert overdraft.compareTo(new BigDecimal(0)) >= 0;
-        assert balance.compareTo(new BigDecimal(0)) >= 0;
+    public double maximumAmountToWithdraw() {
+        return balance + overdraft;
     }
 
     @Override
-    public BigDecimal maximumAmountToWithdraw() {
-        return balance.add(overdraft);
+    public String toString() {
+        return "CheckingAccount{" +
+                "balance=" + balance +
+                ", overdraft=" + overdraft +
+                "maximumAmountToWithdraw=" + maximumAmountToWithdraw() +
+                '}';
     }
 }

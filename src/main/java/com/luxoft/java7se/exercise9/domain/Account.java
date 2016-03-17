@@ -1,13 +1,11 @@
 package com.luxoft.java7se.exercise9.domain;
 
-import java.math.BigDecimal;
-
 public interface Account {
-    BigDecimal getBalance();
+    double getBalance();
 
-    void deposit(BigDecimal amount);
+    void deposit(double x);
 
-    void withdraw(BigDecimal amount);
+    void withdraw(double x);
 
-    BigDecimal maximumAmountToWithdraw();
+    double maximumAmountToWithdraw();
 }

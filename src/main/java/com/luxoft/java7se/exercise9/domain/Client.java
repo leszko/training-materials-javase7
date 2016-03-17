@@ -1,6 +1,5 @@
 package com.luxoft.java7se.exercise9.domain;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +27,9 @@ public class Client {
 
     @Override
     public String toString() {
-        return getClientSalutation();
+        return "Client{" +
+                getClientSalutation() +
+                ", accounts=" + accounts +
+                '}';
     }
 }

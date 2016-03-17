@@ -1,34 +1,43 @@
 package com.luxoft.java7se.exercise9.domain;
 
-import java.math.BigDecimal;
-
 public class SavingAccount implements Account {
-    private BigDecimal balance;
+    private double balance;
 
-    public SavingAccount(BigDecimal initialBalance) {
-        this.balance = initialBalance;
+    public SavingAccount(double startingBalance) {
+        this.balance = startingBalance;
     }
 
     @Override
-    public BigDecimal getBalance() {
-        return balance;
+    public double getBalance() {
+        return this.balance;
     }
 
     @Override
-    public void deposit(BigDecimal amount) {
-        balance = balance.add(amount);
+    public void deposit(double x) {
+        this.balance += x;
     }
 
     @Override
-    public void withdraw(BigDecimal amount) {
-        if (balance.compareTo(amount) >= 0) {
-            balance = balance.subtract(amount);
+    public void withdraw(double x) {
+        if (this.balance >= x) {
+            this.balance -= x;
+        } else {
+            System.out.println("Not enough money");
         }
 
+        assert this.balance >= 0;
     }
 
     @Override
-    public BigDecimal maximumAmountToWithdraw() {
+    public double maximumAmountToWithdraw() {
         return balance;
+    }
+
+    @Override
+    public String toString() {
+        return "SavingAccount{" +
+                "balance=" + balance +
+                ",maximumAmountToWithdraw=" + maximumAmountToWithdraw() +
+                '}';
     }
 }
