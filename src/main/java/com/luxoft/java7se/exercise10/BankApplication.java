@@ -1,12 +1,12 @@
-package com.luxoft.java7se.exercise9;
+package com.luxoft.java7se.exercise10;
 
-import com.luxoft.java7se.exercise9.domain.Bank;
-import com.luxoft.java7se.exercise9.domain.Client;
-import com.luxoft.java7se.exercise9.domain.Gender;
-import com.luxoft.java7se.exercise9.domain.SavingAccount;
-import com.luxoft.java7se.exercise9.event.ClientRegistrationListener;
-import com.luxoft.java7se.exercise9.event.EmailNotificationListener;
-import com.luxoft.java7se.exercise9.event.PrintClientListener;
+import com.luxoft.java7se.exercise10.domain.Bank;
+import com.luxoft.java7se.exercise10.domain.Client;
+import com.luxoft.java7se.exercise10.domain.Gender;
+import com.luxoft.java7se.exercise10.domain.SavingAccount;
+import com.luxoft.java7se.exercise10.event.ClientRegistrationListener;
+import com.luxoft.java7se.exercise10.event.EmailNotificationListener;
+import com.luxoft.java7se.exercise10.event.PrintClientListener;
 
 import java.util.Date;
 
