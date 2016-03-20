@@ -18,10 +18,6 @@ public class Bank {
         }
     }
 
-    public List<Client> getClients() {
-        return clients;
-    }
-
     public void addListener(ClientRegistrationListener listener) {
         listeners.add(listener);
     }

@@ -3,13 +3,13 @@ package com.luxoft.java7se.exercise10.exception;
 import java.math.BigDecimal;
 
 public class NotEnoughFundsException extends BankException {
-    private BigDecimal amount;
+    private double amount;
 
-    public NotEnoughFundsException(BigDecimal amount) {
+    public NotEnoughFundsException(double amount) {
         this.amount = amount;
     }
 
-    public BigDecimal getAmount() {
+    public double getAmount() {
         return amount;
     }
 }

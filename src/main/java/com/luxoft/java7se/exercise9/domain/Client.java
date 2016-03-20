@@ -1,35 +1,36 @@
 package com.luxoft.java7se.exercise9.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Client {
-    private final String name;
-    private final Gender gender;
-    private List<Account> accounts = new ArrayList<>();
+    private String name;
+    private Gender gender;
+    private Account account;
 
     public Client(String name, Gender gender) {
         this.name = name;
         this.gender = gender;
     }
 
-    public String getClientSalutation() {
-        return gender.getSalutation() + " " + name;
+    public void setAccount(Account inputAccount) {
+        this.account = inputAccount;
     }
 
-    public void addAccount(Account account) {
-        accounts.add(account);
+    public Account getAccount() {
+        return this.account;
     }
 
-    public List<Account> getAccounts() {
-        return accounts;
+    private String clientSalutation() {
+        if (this.gender == Gender.MALE) {
+            return "Mr. " + this.name;
+        } else {
+            return "Ms. " + this.name;
+        }
     }
 
     @Override
     public String toString() {
-        return "Client{" +
-                getClientSalutation() +
-                ", accounts=" + accounts +
+        return "\nClient{" +
+                clientSalutation() +
+                ", account=" + account +
                 '}';
     }
 }

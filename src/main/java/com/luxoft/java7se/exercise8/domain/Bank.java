@@ -11,7 +11,7 @@ public class Bank {
 
     @Override
     public String toString() {
-        return "com.luxoft.java7se.exercise8.domain.Bank{" +
+        return "Bank{" +
                 "clients=" + clients +
                 '}';
     }

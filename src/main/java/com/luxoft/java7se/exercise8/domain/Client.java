@@ -29,7 +29,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "\ncom.luxoft.java7se.exercise8.domain.Client{" +
+        return "\nClient{" +
                 clientSalutation() +
                 ", account=" + account +
                 '}';

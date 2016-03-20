@@ -7,14 +7,12 @@ import com.luxoft.java7se.exercise9.domain.SavingAccount;
 import com.luxoft.java7se.exercise9.event.ClientRegistrationListener;
 import com.luxoft.java7se.exercise9.event.EmailNotificationListener;
 import com.luxoft.java7se.exercise9.event.PrintClientListener;
-import com.luxoft.java7se.exercise9.service.BankService;
 
 import java.util.Date;
 
 public class BankApplication {
     public static void main(String[] args) {
         Bank bank = new Bank();
-        BankService bankService = new BankService();
 
         bank.addListener(new PrintClientListener());
         bank.addListener(new EmailNotificationListener());
@@ -25,8 +23,8 @@ public class BankApplication {
             }
         });
 
-        Client rafal = new Client("rafal", Gender.MALE);
-        rafal.addAccount(new SavingAccount(10.4));
-        bankService.addClient(bank, rafal);
+        Client client1 = new Client("rafal", Gender.MALE);
+        client1.setAccount(new SavingAccount(10.4));
+        bank.addClient(client1);
     }
 }
