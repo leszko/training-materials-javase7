@@ -1,41 +1,43 @@
 package com.luxoft.java7se.exercise10.domain;
 
-import com.luxoft.java7se.exercise10.exception.NotEnoughFundsException;
-
-import java.math.BigDecimal;
-
 public class SavingAccount implements Account {
-    private BigDecimal balance;
+    private double balance;
 
-    public SavingAccount(BigDecimal initialBalance) {
-        if (initialBalance.compareTo(new BigDecimal(0)) < 0) {
-            throw new IllegalArgumentException("Balance cannot be negative");
-        }
-        this.balance = initialBalance;
+    public SavingAccount(double startingBalance) {
+        this.balance = startingBalance;
     }
 
     @Override
-    public BigDecimal getBalance() {
-        return balance;
+    public double getBalance() {
+        return this.balance;
     }
 
     @Override
-    public void deposit(BigDecimal amount) {
-        balance = balance.add(amount);
+    public void deposit(double x) {
+        this.balance += x;
     }
 
     @Override
-    public void withdraw(BigDecimal amount) throws NotEnoughFundsException {
-        if (balance.compareTo(amount) >= 0) {
-            balance = balance.subtract(amount);
+    public void withdraw(double x) {
+        if (this.balance >= x) {
+            this.balance -= x;
         } else {
-            throw new NotEnoughFundsException(maximumAmountToWithdraw());
+            System.out.println("Not enough money");
         }
 
+        assert this.balance >= 0;
     }
 
     @Override
-    public BigDecimal maximumAmountToWithdraw() {
+    public double maximumAmountToWithdraw() {
         return balance;
+    }
+
+    @Override
+    public String toString() {
+        return "SavingAccount{" +
+                "balance=" + balance +
+                ",maximumAmountToWithdraw=" + maximumAmountToWithdraw() +
+                '}';
     }
 }

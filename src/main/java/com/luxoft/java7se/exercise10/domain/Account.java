@@ -1,15 +1,11 @@
 package com.luxoft.java7se.exercise10.domain;
 
-import com.luxoft.java7se.exercise10.exception.NotEnoughFundsException;
-
-import java.math.BigDecimal;
-
 public interface Account {
-    BigDecimal getBalance();
+    double getBalance();
 
-    void deposit(BigDecimal amount);
+    void deposit(double x);
 
-    void withdraw(BigDecimal amount) throws NotEnoughFundsException;
+    void withdraw(double x);
 
-    BigDecimal maximumAmountToWithdraw();
+    double maximumAmountToWithdraw();
 }
