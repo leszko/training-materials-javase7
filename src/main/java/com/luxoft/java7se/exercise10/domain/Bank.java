@@ -2,6 +2,7 @@ package com.luxoft.java7se.exercise10.domain;
 
 
 import com.luxoft.java7se.exercise10.event.ClientRegistrationListener;
+import com.luxoft.java7se.exercise10.exception.ClientExistsException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,10 @@ public class Bank {
 
     private List<ClientRegistrationListener> listeners = new ArrayList<>();
 
-    public void addClient(Client client) {
+    public void addClient(Client client) throws ClientExistsException {
+        if (clients.contains(client)) {
+            throw new ClientExistsException();
+        }
         clients.add(client);
         for (ClientRegistrationListener listener : listeners) {
             listener.onClientAdded(client);

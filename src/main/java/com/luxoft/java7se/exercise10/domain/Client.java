@@ -1,5 +1,7 @@
 package com.luxoft.java7se.exercise10.domain;
 
+import java.util.Objects;
+
 public class Client {
     private String name;
     private Gender gender;
@@ -32,5 +34,18 @@ public class Client {
                 clientSalutation() +
                 ", account=" + account +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(name, client.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
